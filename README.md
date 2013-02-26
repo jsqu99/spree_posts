@@ -13,7 +13,7 @@ Installation
 ------------
 Add the following to your Gemfile: 
 
-    gem "spree_pages", :git => 'git://github.com/sebastyuiop/spree_pages.git'
+    gem "spree_pages", :git => 'git://github.com/digitalcake/spree_posts.git'
 
 Run bundle install
 
@@ -21,4 +21,4 @@ Run bundle install
 
 To copy and apply required migrations run:
 
-    rails g spree_pages:install
+    rails g spree_posts:install
