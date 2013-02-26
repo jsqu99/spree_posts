@@ -1,14 +1,23 @@
+  <% content_for :page_title do %>
+    <%= t(:edit_post) %>
+  <% end %>
+
+  <% content_for :page_actions do %>
+    <li>
+      <%= button_link_to t(:back_to_post_list), spree.admin_posts_path, :icon => 'icon-arrow-left' %>
+    </li>
+  <% end %>
+
 <div data-hook="admin_post_edit_form_header">
   <%= render 'spree/shared/error_messages', :target => @post %>
-  <h1><%= t("editing_post") %></h1>  
+  
 </div>
 
 <div data-hook="admin_post_edit_form">
-  <%= form_for(:post, :url => object_url, :html => { :method => :put }) do |f| %>
+  <%= simple_form_for(:post, :url => object_url, :html => {:class => "form-horizontal", :method => :put }) do |f| %>
     <%= render :partial => "form", :locals => { :f => f } %>
-
-    <div data-hook="admin_post_edit_form_buttons">
-      <%= render :partial => "spree/admin/shared/edit_resource_links" %>
-    </div>
+    <div data-hook="admin_post_edit_form_button">
+      <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+  </div>
   <% end %>
 </div>

@@ -1,32 +1,32 @@
-<div class='toolbar'>
-  <ul class='actions'>
-    <li>
-      <p><%= button_link_to t("new_post"), new_object_url, :icon => 'add' %></p>
-    </li>
-  </ul>
-  <br class='clear' />
-</div>
+<% content_for :page_title do %>
+  Listing Posts
+<% end %>
 
-<h1><%= t("listing_posts") %></h1>
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to t(:new_post), new_object_url, :icon => 'icon-plus', :id => 'admin_new_user_link' %>
+  </li>
+<% end %>
 
 <table class="index">
+
   <thead>
   <tr>
     <th><%= t("title") %></th>
     <th><%= t("permalink") %></th>
     <th><%= t("published") %></th>
-    <th>&nbsp;</th>
+    <th data-hook="admin_users_index_header_actions" class="actions"></th>
   </tr>
   </thead>
   <tbody>
     <% @posts.each do |post|%>
-      <tr id="<%= dom_id post %>">
+      <tr id="<%= dom_id post %>" class="<%= cycle('odd', 'even')%>">
         <td width="350px"><%=link_to post.title, edit_object_url(post) %></td>
         <td><%= post.permalink %></td>
         <td><%= t(post.published? ? 'yes' : 'no') %></td>
-        <td>
-            <%= link_to_edit post %> &nbsp;
-            <%= link_to_delete post %>
+        <td data-hook="admin_posts_index_row_actions" class="actions">
+            <%= link_to_edit post, :no_text => true %>
+          <%= link_to_delete post, :no_text => true %>
         </td>
       </tr>
     <% end %>
@@ -34,3 +34,4 @@
 </table>
 
 <%= paginate @posts %>
+

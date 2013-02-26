@@ -1,4 +1,3 @@
-
 module Spree
   class PostsController < BaseController
     before_filter { render_404 if params[:id] =~ /(\.|\\)/ }
@@ -7,13 +6,17 @@ module Spree
 
     respond_to :html
 
+    def index
+      @posts = Post.published
+    end
+
     # GET /pages/about-us
     def show
-      @page = Post.published.find_by_permalink(params[:id])
+      @post = Post.published.find_by_permalink(params[:id])
     end
 
     def current_order
-
+      
     end
 
   end

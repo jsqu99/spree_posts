@@ -1,1 +1,6 @@
-Yeah I'm an index
+<% @posts.each do |post| %> 
+  <div class="well">
+    <%= content_tag "h1", link_to(post.title, "/posts/#{post.permalink}") %>
+    <%= post.body.html_safe %>
+  </div>
+<% end %>
