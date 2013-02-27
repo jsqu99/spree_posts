@@ -47,5 +47,13 @@
       <%= error_message_on :posts, :published %>
     <% end %>
  </div>
+
+  <div class="alpha sixteen columns">
+    <%= f.field_container :tag_list do %>
+      <%= f.label :tag_list, t(:tag_list) %>
+      <%= f.text_field :tag_list, :class => 'fullwidth' %>
+      <%= error_message_on :posts, :tag_list %>
+    <% end %>
+ </div>
   
 </div>

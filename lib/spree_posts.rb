@@ -1,2 +1,5 @@
 require 'spree_core'
 require 'spree_posts/engine'
+require 'acts-as-taggable-on'
+require 'truncate_html'
+require 'kaminari'

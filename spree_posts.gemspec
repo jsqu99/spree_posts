@@ -16,6 +16,9 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency('spree_core', '~> 1.3.0')
-  s.add_runtime_dependency('acts-as-taggable-on', '~> 2.3.1')
+  s.add_dependency('spree_core',          '~> 1.3.0')
+  s.add_dependency('acts-as-taggable-on', '~> 2.3.1')
+  s.add_dependency('truncate_html',       '~> 0.5.5')
+  s.add_dependency('kaminari',            '~> 0.14.1')
+
 end

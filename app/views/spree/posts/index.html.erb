@@ -1,6 +1,21 @@
 <% @posts.each do |post| %> 
   <div class="well">
-    <%= content_tag "h1", link_to(post.title, "/posts/#{post.permalink}") %>
-    <%= post.body.html_safe %>
+    <%= content_tag "h1", link_to(post.title, "#{posts_path}/#{post.permalink}") %>
+    <%= truncate_html(strip_tags(post.body), :length => 100).html_safe %>
+    <% unless post.tag_list.empty? %>
+      <div class="tags">
+        <strong>Posted in:</strong>
+        <%= raw post.tag_list.map { |t| link_to(t, tag_path(t), :class => "label")}.join(" ") unless post.tag_list.empty? %>
+      </div>
+    <% end %> 
   </div>
 <% end %>
+
+<section id="categories">
+  <h3>Categories</h3>
+  <ul class="nav nav-tabs nav-stacked">
+    <% @categories.each do |category| %>
+      <li><%= link_to "#{category.name} <span class='post-count'>(#{category.count})</span>".html_safe, "/blog/category/#{category.name}" %></li>
+    <% end %>
+  </ul>
+</section>
