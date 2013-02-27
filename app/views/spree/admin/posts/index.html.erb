@@ -22,7 +22,7 @@
     <% @posts.each do |post|%>
       <tr id="<%= dom_id post %>" class="<%= cycle('odd', 'even')%>">
         <td width="350px"><%=link_to post.title, edit_object_url(post) %></td>
-        <td><%= post.permalink %></td>
+        <td><%= link_to post.permalink, "#{posts_path}/#{post.permalink}" %></td>
         <td><%= t(post.published? ? 'yes' : 'no') %></td>
         <td data-hook="admin_posts_index_row_actions" class="actions">
             <%= link_to_edit post, :no_text => true %>
