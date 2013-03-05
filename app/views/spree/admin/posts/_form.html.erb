@@ -48,6 +48,14 @@
     <% end %>
  </div>
 
+ <div class="alpha sixteen columns">
+    <%= f.field_container :published_at do %>
+      <%= f.label :published_at, t(:published_at) %>
+      <%= f.text_field :published_at, :class => 'fullwidth' %>
+      <%= error_message_on :posts, :published_at %>
+    <% end %>
+ </div>
+
   <div class="alpha sixteen columns">
     <%= f.field_container :tag_list do %>
       <%= f.label :tag_list, t(:tag_list) %>
