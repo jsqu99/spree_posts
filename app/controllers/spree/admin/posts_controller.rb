@@ -1,7 +1,7 @@
 module Spree
   class Admin::PostsController < Admin::ResourceController
     
-    #cache_sweeper PostSweeper, :only => [ :edit, :update, :destroy ]
+    cache_sweeper PostSweeper, :only => [ :edit, :update, :destroy ]
     
     def index
      @posts = Post.page(params[:post])
