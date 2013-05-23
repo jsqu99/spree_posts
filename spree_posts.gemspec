@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_posts'
-  s.version     = '0.60.0'
+  s.version     = '0.60.1'
   s.summary     = 'Adds basic Posts to Spree'
   s.description = 'Built from spree_pages'
   s.required_ruby_version = '>= 1.8.7'
