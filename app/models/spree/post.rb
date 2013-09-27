@@ -13,7 +13,7 @@ module Spree
     scope :published, lambda { where(Post.arel_table[:published_at].lteq(DateTime.now)).order("created_at desc") }
 
     def self.archives year, month=nil
-      if month
+      if month && month > 0
         start_date = Date.new(year, month)
         end_date = start_date.end_of_month.next_day
       else
